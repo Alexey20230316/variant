@@ -43,7 +43,7 @@ int main() {
 	}
 	else if (std::holds_alternative<std::vector<int>>(age))
 	{
-		std::cout << "1, 2, 3, 4, 5";
+		for()
 	}
 
 	return 0;
