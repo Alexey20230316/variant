@@ -3,7 +3,8 @@
 #include<string>
 #include<variant>
 
-std::variant<int, std::string, std::vector<int>> get_variant() {
+std::variant<int, std::string, std::vector<int>> get_variant()
+{
 	std::srand(std::time(nullptr));
 	int random_variable = std::rand() % 3;
 
@@ -29,8 +30,8 @@ int main() {
 
 
 	std::variant<int, std::string, std::vector<int>> age;
+	auto age = get_variant();
 	
-	age = get_variant();
 
 	if (std::holds_alternative<std::string>(age))
 	{
@@ -41,9 +42,15 @@ int main() {
 		int a = std::get<int>(age) * 2;
 		std::cout << a;
 	}
-	else if (std::holds_alternative<std::vector<int>>(age))
+
+	// Problemma!! 
+	else
 	{
-		for()
+		std::vector<int> aga;
+		
+		std::vector<int>::iterator it;
+		
+	    aga = std::get<int>(&age);
 	}
 
 	return 0;
