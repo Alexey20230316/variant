@@ -2,6 +2,7 @@
 #include<vector>
 #include<string>
 #include<variant>
+#include<cstdlib>
 
 std::variant<int, std::string, std::vector<int>> get_variant()
 {
@@ -23,6 +24,7 @@ std::variant<int, std::string, std::vector<int>> get_variant()
 	default:
 		break;
 	}
+	
 	return result;
 }
 
@@ -30,8 +32,8 @@ int main() {
 
 
 	std::variant<int, std::string, std::vector<int>> age;
-	auto age = get_variant();
-	
+	age = get_variant();
+	std::vector<int>agu;
 
 	if (std::holds_alternative<std::string>(age))
 	{
@@ -42,15 +44,15 @@ int main() {
 		int a = std::get<int>(age) * 2;
 		std::cout << a;
 	}
-
-	// Problemma!! 
 	else
 	{
-		std::vector<int> aga;
+		agu = std::get<std::vector<int>>(age);
+
+		for (std::vector<int>::iterator it = agu.begin(); it != agu.end(); it++)
+		{
+			std::cout << *it << std::endl;
+		}
 		
-		std::vector<int>::iterator it;
-		
-	    aga = std::get<int>(&age);
 	}
 
 	return 0;
